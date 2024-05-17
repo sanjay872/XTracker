@@ -1,5 +1,6 @@
-import "@styles/global.css";
-import Nav from "@components/nav";
+import "@styles/globals.css";
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
 export const metadata={
     title:"XTracker",
@@ -11,8 +12,10 @@ const layout=({children})=>{
     return(
         <html lang="en">
             <body>
-            <Nav/> 
-                {children}
+                <Provider>
+                    <Nav/>
+                    {children}
+                </Provider>
             </body>
         </html>
     )
