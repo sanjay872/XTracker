@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect,useState } from "react";
 import { useSession,signIn,signOut,getProviders } from "next-auth/react";
+import {useRouter} from "next/navigation";
 
 const Nav=()=>{
     const {data:session}=useSession();
     const [providers,setProviders]=useState(null);
+    const router=useRouter();
     
     useEffect(()=>{
         const fetchData=async()=>{
@@ -16,6 +18,11 @@ const Nav=()=>{
         }
         fetchData();
     },[])
+
+    const signOutAndRedirect=async ()=>{
+        await signOut({ redirect: false })
+        router.push("/"); // Redirect to the dashboard page after signing out})
+    }
     
     return(
         <nav className="flex w-full items-center px-5 py-5 gap-x-10 bg-red-600 text-white">
@@ -23,9 +30,8 @@ const Nav=()=>{
             <div className="flex w-full items-center justify-end gap-x-5">
                 {session?.user?(
                     <>
-                        <Link href="/add-expenses">Add Expenses</Link>
-                        <Link href="/view-expenses">View Expenses</Link>
-                        <button className="black_btn" onClick={signOut}>Sign Out</button>
+                        <button className="black_btn" 
+                        onClick={signOutAndRedirect}>Sign Out</button>
                         <Link href='/profile'>
                         <Image
                             src={session?.user.image}

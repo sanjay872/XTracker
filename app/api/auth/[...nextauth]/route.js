@@ -33,7 +33,6 @@ const handleNextAuth = nextAuth({
         console.log(err);
         return false;
       }
-
       return true;
     },
   },
