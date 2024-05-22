@@ -2,8 +2,9 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Home from "@components/Home";
 
-const Home = () => {
+const Main = () => {
     const route=useRouter();
     const { data: session } = useSession();
    
@@ -11,11 +12,10 @@ const Home = () => {
         <div>
             {session?.user ? route.push("/expenses") : (
                 <>
-                    <h1>Home</h1>
-                    <p>Sign in to view your profile</p>
+                    <Home />
                 </>
             )}
         </div>
     );
 }
-export default Home;
+export default Main;
