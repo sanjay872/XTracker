@@ -6,7 +6,7 @@ const ExpenseForm = ({type,expense,setExpense,submitting,handleSubmitting}) => {
   return (
     <div className='form_layout'>
         <h1 className="font-bold text-2xl">{type} Expense</h1>
-        <form onSubmit={handleSubmitting}>
+        <form className='form' onSubmit={handleSubmitting}>
             <input 
                 type="text" value={expense.title} 
                 onChange={(e)=>setExpense({...expense,title:e.target.value})} 

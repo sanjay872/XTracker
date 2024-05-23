@@ -3,7 +3,7 @@
 import '@styles/Expenses.css';
 import ExpenseForm from "@components/Expenses-Form"
 import { useState } from "react";
-import Expenses from "@components/Expenses";
+import ExpensesView from "@components/ExpensesView";
 
 const page = () => {
   const [expense,setExpense]=useState({
@@ -27,7 +27,7 @@ const page = () => {
   return (
     <div className="expenses_layout">
       <ExpenseForm  type={"Add"} setExpense={setExpense} expense={expense} submitting={submitting} handleSubmitting={handleAdd} />
-      <Expenses />
+      <ExpensesView />
     </div>
   )
 }
