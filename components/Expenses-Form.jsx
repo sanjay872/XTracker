@@ -11,16 +11,19 @@ const ExpenseForm = ({type,expense,setExpense,submitting,handleSubmitting}) => {
                 type="text" value={expense.title} 
                 onChange={(e)=>setExpense({...expense,title:e.target.value})} 
                 placeholder="Enter Expense"
+                required
                 />
             <input 
                 type="number" value={expense.cost} 
                 onChange={(e)=>setExpense({...expense,cost:e.target.value})} 
                 placeholder="Enter Amount"
+                required
                 />
             <input 
                 type="date" value={expense.date}
                 onChange={(e)=>setExpense({...expense,date:e.target.value})} 
-                placeholder="Enter Date" 
+                placeholder="Enter Date"
+                required
                 />
             <textarea value={expense.description}
                 onChange={(e)=>setExpense({...expense,description:e.target.value})} 

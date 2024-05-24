@@ -8,6 +8,7 @@ import ExpensesView from "@components/ExpensesView";
 const page = () => {
   const [expense,setExpense]=useState({
     userid:"",
+    id:"",
     title:"",
     cost:"",
     date:"",
@@ -15,19 +16,33 @@ const page = () => {
     category:"",
     document:""
   });
+  const [expenses,setExpenses]=useState([]);
 
   const [submitting,setSubmitting]=useState(false);
 
   const handleAdd=(e)=>{
     e.preventDefault();
-    console.log(expense)
-    console.log("Add Expense")
+    setSubmitting(true);
+    setTimeout(()=>{
+      setExpenses([...expenses,expense]);
+      setExpense({
+        userid:"",
+        id:"",
+        title:"",
+        cost:"",
+        date:"",
+        description:"",
+        category:"",
+        document:""
+      });
+    },1000);
+    setSubmitting(false);
   }
 
   return (
     <div className="expenses_layout">
       <ExpenseForm  type={"Add"} setExpense={setExpense} expense={expense} submitting={submitting} handleSubmitting={handleAdd} />
-      <ExpensesView />
+      <ExpensesView expenses={expenses}/>
     </div>
   )
 }
