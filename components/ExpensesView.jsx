@@ -6,6 +6,30 @@ const ExpensesView = ({expenses,handleEdit,handleDelete}) => {
     <div className="view_layout">
       <div className="header">
         <h1 className="font-bold text-2xl">Expenses</h1>
+        <div>
+        <label>Filter by Month or Year  </label>
+        <select className="monthDropDown">
+          <option value="1">JAN</option>
+          <option value="2">FEB</option>
+          <option value="3">MAR</option>
+          <option value="4">APR</option>
+          <option value="5">MAY</option>
+          <option value="6">JUN</option>
+          <option value="7">JUL</option>
+          <option value="8">AUG</option>
+          <option value="9">SEP</option>
+          <option value="10">OCT</option>
+          <option value="11">NOV</option>
+          <option value="12">DEC</option>
+        </select>
+        <select className="yearDropDown">
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select>
+        </div>
       </div>
     <div className="list">
         {/* Render each expense item */}
