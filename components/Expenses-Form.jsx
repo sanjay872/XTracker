@@ -20,8 +20,14 @@ const ExpenseForm = ({type,expense,setExpense,submitting,handleSubmitting}) => {
                 required
                 />
             <input 
-                type="date" value={expense.date}
-                onChange={(e)=>setExpense({...expense,date:e.target.value})} 
+                type="date" value={expense.year+"-"+expense.month+"-"+expense.day}
+                onChange={(e)=>{
+                    //console.log(e.target.value.split("-"));
+                    const day=e.target.value.split("-")[2];
+                    const month=e.target.value.split("-")[1];
+                    const year=e.target.value.split("-")[0];
+                    setExpense({...expense,day,month,year})
+                    }} 
                 placeholder="Enter Date"
                 required
                 />
